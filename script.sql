@@ -1,11 +1,13 @@
+-- ALTER SESSION
+alter session set "_ORACLE_SCRIPT" = true;
 
 -- Criação categorias
 CREATE TABLE categorias(
 	cat_id INTEGER NOT NULL,
 	cat_nome VARCHAR2(256),
-	cat_descricao VARCHAR2(512),
+	cat_descricao VARCHAR2(512)
 );
-ALTER TABLE categorias ADD CONSTRAINT PRIMARY KEY (cat_id);
+ALTER TABLE categorias ADD CONSTRAINT pk_cat PRIMARY KEY(cat_id);
 
 CREATE SEQUENCE sq_cat nocache;
 CREATE TRIGGER tg_sq_cat before INSERT ON categorias FOR EACH ROW
@@ -18,7 +20,7 @@ CREATE TABLE tipos_pagamentos(
 	tpg_id INTEGER NOT NULL,
 	tpg_tipo VARCHAR2(128)
 );
-ALTER TABLE tipos_pagamentos ADD CONSTRAINT PRIMARY KEY (tpg_id);
+ALTER TABLE tipos_pagamentos ADD CONSTRAINT pk_tpg PRIMARY KEY (tpg_id);
 
 CREATE SEQUENCE sq_tpg nocache;
 CREATE TRIGGER tg_sq_tpg before INSERT ON tipos_pagamentos FOR EACH ROW

@@ -1,16 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "lib": [
-      "es6"
-    ],
-    "allowJs": true,
-    "outDir": "build",
+    "outDir": "dist", // Onde queremos gerar o código JS minificado
+    "module": "CommonJS", // Desenvolvemos em Import e Export e depois, quando compilar, gera o que os navegadores entendem
+    "target": "esnext", // Qual versão ECMAScript vai ser gerada.
+    "esModuleInterop": true, // conversão de módulos que utilizam require e module.export para import / export
+    "strictNullChecks": false,
+    "baseUrl": "src",
+    "sourceMap": true,
     "rootDir": "src",
-    "strict": true,
-    "noImplicitAny": true,
-    "esModuleInterop": true,
-    "resolveJsonModule": true
-  }
+  },
+  "include": [
+    "src/**/*"
+  ]
 }
