@@ -1,11 +1,12 @@
 import { query, Request, Response } from "express";
-import * as Excel from 'exceljs';
+import { PgConnection } from "../../infra/db/postgres/helpers/pg-helper";
 
 export default class Controller {
 
-  public handle(req: Request, res: Response): Response<any, Record<string, any>> {
+  public async handle(req: Request, res: Response): Promise<Response<any, Record<string, any>>> {
+    const result = await PgConnection.execute("select * from tipos_pagamentos")
     return res.status(200).json({
-      data: 'deu certo'
+      data: result.rows
     });
   }
 }

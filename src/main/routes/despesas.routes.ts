@@ -5,5 +5,5 @@ const controller: Controller = new Controller()
 
 
 router.get("/despesas", controller.handle);
-
+router.post("/despesas", controller.handle)
 export { router };

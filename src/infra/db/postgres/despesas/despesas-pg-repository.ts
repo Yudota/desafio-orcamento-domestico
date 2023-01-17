@@ -1,11 +1,11 @@
 import { DespesasCRUD } from '../../../../data/protocols/db/despesas/despesas-repository'
 import { DespesasModel } from '../../../../domain/models/despesas'
 import { AddDespesasModel } from '../../../../domain/usecases/add-despesas'
-import { OracleConnection } from '../helpers/oracle-developer-helper'
+import { PgConnection } from '../helpers/pg-helper'
 
-export class AccountMongoRepository implements DespesasCRUD {
+export class DespesasPgRepository implements DespesasCRUD {
   add(account: AddDespesasModel): Promise<any> {
-    const result = OracleConnection.execute(`INSERT INTO despesas() values();`)
+    const result = PgConnection.execute(`INSERT INTO despesas() values();`)
     return result
   }
 }
