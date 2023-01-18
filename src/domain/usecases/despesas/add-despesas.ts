@@ -1,5 +1,5 @@
-import { DespesasModel } from '../models/despesas'
-import { TiposPagamentosEnum } from '../models/tipos-pagamentos';
+import { DespesasModel } from '../../models/despesas'
+import { TiposPagamentosEnum } from '../../models/tipos-pagamentos';
 
 export interface AddDespesasModel {
   valor: number;
