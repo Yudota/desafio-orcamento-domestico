@@ -57,3 +57,17 @@ INSERT INTO tipos_pagamentos(
 INSERT INTO tipos_pagamentos(
   tpg_tipo
 ) VALUES ('Dinheiro');
+
+
+INSERT INTO categorias(
+  cat_nome, cat_descricao
+) VALUES ('Alimentação', 'Compras do mercado e atacados');
+INSERT INTO categorias(
+  cat_nome, cat_descricao
+) VALUES ('Entretenimento', 'Despesas com cinema, teatro, shows etc.');
+INSERT INTO categorias(
+  cat_nome, cat_descricao
+) VALUES ('Saúde', 'Despesas com medicamentos, consultas e exames');
+INSERT INTO categorias(
+  cat_nome, cat_descricao
+) VALUES ('Outros', 'Outros tipos de despesas');

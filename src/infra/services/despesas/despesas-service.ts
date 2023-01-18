@@ -3,12 +3,12 @@ import { DespesasPgRepository } from "../../../infra/db/postgres/despesas/despes
 import responseFormater, { ResponseFormatter } from "../../../presentation/controller/response-formater";
 
 export class DespesasService {
-  repo = new DespesasPgRepository()
+  repoDespesas = new DespesasPgRepository()
   success = true
   async listAll(params: ListDespesasModel): Promise<ResponseFormatter> {
 
     try {
-      const data = await this.repo.listAll(params)
+      const data = await this.repoDespesas.listAll(params)
 
       return responseFormater(data, this.success)
     } catch (error) {
@@ -17,7 +17,8 @@ export class DespesasService {
   }
   async add(despesa: AddDespesasModel): Promise<ResponseFormatter> {
     try {
-      const data = await this.repo.add(despesa)
+
+      const data = await this.repoDespesas.add(despesa)
       return responseFormater(data, this.success)
     } catch (error) {
       return responseFormater(error, false)

@@ -7,7 +7,7 @@ export interface AddDespesasModel {
   descricao: string;
   tipo_pagamento_id: number;
   categoria_id: number;
-  cep: string;
+  endereco_id: number;
   numero_estabelecimento: string;
 
 }

@@ -23,11 +23,11 @@ export const PgConnection = {
 
   async execute(query: string): Promise<any> {
     try {
+      await this.client.connect()
+
       return await this.client.query(query);
     } catch (err) {
       console.error(err);
-    } finally {
-      await this.client.end()
     }
   }
 }

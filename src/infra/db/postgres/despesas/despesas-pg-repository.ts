@@ -56,15 +56,14 @@ export class DespesasPgRepository implements DespesasCRUD {
       des_end_id,
       des_numero_estabelecimento
       ) values(
-        ${despesa.valor},
-        ${despesa.data_compra},
-        ${despesa.descricao},
-        ${despesa.tipo_pagamento_id},
-        ${despesa.cep}
-        ${despesa.categoria_id},
-        ${despesa.numero_estabelecimento},
-
-      );`)
+        '${despesa.valor}',
+        '${despesa.data_compra}',
+        '${despesa.descricao}',
+        '${despesa.tipo_pagamento_id}',
+        '${despesa.categoria_id}',
+        '${despesa.endereco_id}',
+        '${despesa.numero_estabelecimento}'
+      ) RETURNING *;`)
       return result.rows as DespesasModel
     } catch (error) {
       throw new Error(error);
