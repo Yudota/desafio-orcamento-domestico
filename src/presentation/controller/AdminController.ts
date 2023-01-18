@@ -1,25 +1,24 @@
 import { Request, Response } from "express";
 import { PgConnection } from "../../infra/db/postgres/helpers/pg-helper";
-import decoratorResponse from "./decorator-response";
+import responseFormater from "./response-formater";
 
 export default class AdminController {
 
-  public async handle(req: Request, res: Response): Promise<Response<any, Record<string, any>>> {
-    console.log('Requisicao:', req)
+  public static async handle(req: Request, res: Response): Promise<Response<any, Record<string, any>>> {
 
     switch (req.method) {
       case 'GET':
-        return res.json(decoratorResponse({ method: 'GET' }, true))
+        return res.json(responseFormater({ method: 'GET' }, true))
       case 'POST':
-        return res.json(decoratorResponse({ method: 'POST' }, true))
+        return res.json(responseFormater({ method: 'POST' }, true))
       case 'PUT':
-        return res.json(decoratorResponse({ method: 'PUT' }, true))
+        return res.json(responseFormater({ method: 'PUT' }, true))
       case 'PATCH':
-        return res.json(decoratorResponse({ method: 'PATCH' }, true))
+        return res.json(responseFormater({ method: 'PATCH' }, true))
       case 'DELETE':
-        return res.json(decoratorResponse({ method: 'DELETE' }, true))
+        return res.json(responseFormater({ method: 'DELETE' }, true))
       default:
-        return res.json(decoratorResponse('deu errado', false))
+        return res.json(responseFormater('deu errado', false))
 
     }
     // const result = await PgConnection.execute("select * from tipos_pagamentos")

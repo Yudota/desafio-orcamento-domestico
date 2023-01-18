@@ -6,13 +6,12 @@ enum endpoints {
 }
 
 const adminRoutes = Router();
-const adminController = new AdminController();
 
 for (const endpoint in endpoints) {
-  adminRoutes.get(`/${endpoint}`, adminController.handle);
-  adminRoutes.post(`/${endpoint}`, adminController.handle);
-  adminRoutes.put(`/${endpoint}`, adminController.handle);
-  adminRoutes.patch(`/${endpoint}`, adminController.handle);
-  adminRoutes.delete(`/${endpoint}`, adminController.handle);
+  adminRoutes.get(`/${endpoint}`, AdminController.handle);
+  adminRoutes.post(`/${endpoint}`, AdminController.handle);
+  adminRoutes.put(`/${endpoint}`, AdminController.handle);
+  adminRoutes.patch(`/${endpoint}`, AdminController.handle);
+  adminRoutes.delete(`/${endpoint}`, AdminController.handle);
 }
 export { adminRoutes };

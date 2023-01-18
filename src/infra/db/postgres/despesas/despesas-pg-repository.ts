@@ -1,4 +1,4 @@
-import { DeleteDespesasModel, ListDespesasModel, UpdateDespesasModel } from 'domain/usecases/despesas'
+import { DeleteDespesasModel, ListDespesasModel, UpdateDespesasModel } from '../../../../domain/usecases/despesas'
 import { DespesasCRUD } from '../../../../data/protocols/db/despesas/despesas-repository'
 import { DespesasModel } from '../../../../domain/models/despesas'
 import { AddDespesasModel } from '../../../../domain/usecases/despesas/add-despesas'
@@ -17,7 +17,7 @@ export class DespesasPgRepository implements DespesasCRUD {
   async listAll(despesas: ListDespesasModel): Promise<DespesasModel[]> {
     try {
       const result = await PgConnection.execute(`SELECT * FROM despesas
-    WHERE data BETWEEN '${despesas.dataInicio}' AND '${despesas.dataFinal}'`)
+    WHERE des_data_compra BETWEEN '${despesas.dataInicio}' AND '${despesas.dataFinal}'`)
       return result.rows as DespesasModel[];
     } catch (error) {
       throw new Error(error)
