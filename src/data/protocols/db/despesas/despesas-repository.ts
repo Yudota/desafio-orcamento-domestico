@@ -1,6 +1,8 @@
-import { AddDespesasModel } from '../../../../domain/usecases/despesas/add-despesas'
-import { DespesasModel } from '../../../../domain/models/despesas'
+import {
+  AddDespesas,
+  DeleteDespesas,
+  ListDespesas,
+  UpdateDespesas
+} from '../../../../domain/usecases/despesas'
 
-export interface DespesasCRUD {
-  add: (account: AddDespesasModel) => Promise<DespesasModel>
-}
+export interface DespesasCRUD extends AddDespesas, DeleteDespesas, ListDespesas, UpdateDespesas { }

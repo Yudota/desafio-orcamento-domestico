@@ -2,6 +2,6 @@ export interface DeleteDespesasModel {
   id: number
 }
 
-export interface AddDespesas {
+export interface DeleteDespesas {
   delete: (account: DeleteDespesasModel) => Promise<void>
 }

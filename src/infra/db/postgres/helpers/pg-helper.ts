@@ -1,4 +1,4 @@
-import pg, { PoolConfig } from 'pg';
+import pg from 'pg';
 
 export const PgConnection = {
   client: null as any,

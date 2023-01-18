@@ -16,9 +16,5 @@ export default class Controller {
         return res.json(decoratorResponse('deu errado', false))
 
     }
-    // const result = await PgConnection.execute("select * from tipos_pagamentos")
-    // return res.status(200).json({
-    //   data: result.rows
-    // });
   }
 }

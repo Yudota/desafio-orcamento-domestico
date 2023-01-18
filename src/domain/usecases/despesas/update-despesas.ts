@@ -10,6 +10,6 @@ export interface UpdateDespesasModel {
   categoria: string;
 }
 
-export interface AddDespesas {
+export interface UpdateDespesas {
   update: (despesa: UpdateDespesasModel) => Promise<DespesasModel>
 }

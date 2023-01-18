@@ -3,10 +3,13 @@ import { TiposPagamentosEnum } from '../../models/tipos-pagamentos';
 
 export interface AddDespesasModel {
   valor: number;
+  data_compra: string;
   descricao: string;
-  data: string;
-  tipo_pagamento: TiposPagamentosEnum;
-  categoria: string;
+  tipo_pagamento_id: number;
+  categoria_id: number;
+  cep: string;
+  numero_estabelecimento: string;
+
 }
 
 export interface AddDespesas {

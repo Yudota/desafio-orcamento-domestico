@@ -7,8 +7,6 @@ dotenv.config()
 const port = process.env.API_PORT
 PgConnection.connect()
   .then(async () => {
-    console.log(PgConnection.client);
-
     const app = (await import('./config/app')).default
     app.listen(port, () => console.log(`Server running at http://localhost:${port}`))
   })
