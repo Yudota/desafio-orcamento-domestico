@@ -1,6 +1,6 @@
 export enum TiposPagamentosEnum {
-  dinheiro = "dinheiro",
-  credito = "credito",
-  debito = "debito",
-  pix = "pix"
+  dinheiro = "Dinheiro",
+  credito = "Crédito",
+  debito = "Débito",
+  pix = "Pix"
 }

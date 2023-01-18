@@ -4,8 +4,8 @@ import * as dotenv from 'dotenv'
 
 dotenv.config()
 
-const port = process.env.PORT
-PgConnection.connect(process.env.DATABASE_CONNECTION)
+const port = process.env.API_PORT
+PgConnection.connect()
   .then(async () => {
     console.log(PgConnection.client);
 

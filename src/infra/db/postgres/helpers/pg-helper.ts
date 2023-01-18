@@ -2,14 +2,14 @@ import pg, { PoolConfig } from 'pg';
 
 export const PgConnection = {
   client: null as any,
-  async connect(con: string): Promise<void> {
+  async connect(): Promise<void> {
     try {
       this.client = new pg.Pool({
-        user: 'postgres',
-        host: '127.0.0.1',
-        database: 'teste-node',
-        password: 'postgres',
-        port: 5432
+        user: process.env.DATABASE_USER,
+        host: process.env.DATABASE_HOST,
+        database: process.env.DATABASE_NAME,
+        password: process.env.DATABASE_PASSWORD,
+        port: Number(process.env.DATABASE_PORT)
       });
     } catch (error) {
       console.error(error);
@@ -22,17 +22,12 @@ export const PgConnection = {
   },
 
   async execute(query: string): Promise<any> {
-    let connection;
     try {
       return await this.client.query(query);
+    } catch (err) {
+      console.error(err);
     } finally {
-      if (connection) {
-        try {
-          await connection.close();
-        } catch (err) {
-          console.error(err);
-        }
-      }
+      await this.client.end()
     }
   }
 }

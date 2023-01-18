@@ -1,20 +1,18 @@
 import { Router } from "express";
-import Controller from "../../presentation/controller/Controller";
+import AdminController from "../../presentation/controller/AdminController";
 
 enum endpoints {
-  PLAYER = "player",
-  CIDADE = "cidade",
-  ESTADO = "estado"
+  CATEGORIAS = "categorias"
 }
 
 const adminRoutes = Router();
-const controller = new Controller();
+const adminController = new AdminController();
 
 for (const endpoint in endpoints) {
-  adminRoutes.get(`/${endpoint}`, controller.handle);
-  adminRoutes.post(`/${endpoint}`, controller.handle);
-  adminRoutes.put(`/${endpoint}`, controller.handle);
-  adminRoutes.patch(`/`, controller.handle);
-  adminRoutes.delete(`/${endpoint}`, controller.handle);
+  adminRoutes.get(`/${endpoint}`, adminController.handle);
+  adminRoutes.post(`/${endpoint}`, adminController.handle);
+  adminRoutes.put(`/${endpoint}`, adminController.handle);
+  adminRoutes.patch(`/${endpoint}`, adminController.handle);
+  adminRoutes.delete(`/${endpoint}`, adminController.handle);
 }
 export { adminRoutes };
