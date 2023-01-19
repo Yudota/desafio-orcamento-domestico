@@ -1,0 +1,163 @@
+{
+	"info": {
+		"_postman_id": "32facdf5-7dc4-45e3-a9f1-f9422d8b17d7",
+		"name": "Teste - Muralis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22554667"
+	},
+	"item": [
+		{
+			"name": "get-despesas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}?dataInicio=01/01/2022&dataFinal=01/02/2023&formato=pdf",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"query": [
+						{
+							"key": "dataInicio",
+							"value": "01/01/2022"
+						},
+						{
+							"key": "dataFinal",
+							"value": "01/02/2023"
+						},
+						{
+							"key": "formato",
+							"value": "pdf"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get-despesas",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}?dataInicio=01/01/2022&dataFinal=01/02/2022&formato=pdf",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"query": [
+								{
+									"key": "dataInicio",
+									"value": "01/01/2022"
+								},
+								{
+									"key": "dataFinal",
+									"value": "01/02/2022"
+								},
+								{
+									"key": "formato",
+									"value": "pdf"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "26"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1a-QRU2eolcT1/25C8uyLRWR/931dE\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 18 Jan 2023 08:16:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [],\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "add-despesas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"valor\": 120.24,\n    \"data_compra\": \"15/01/2023\",\n    \"descricao\": \"compra da semana\",\n    \"tipo_pagamento_id\": 1,\n    \"categoria_id\": 5,\n    \"cep\": \"08743320\",\n    \"numero_estabelecimento\": \"12A\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}",
+					"host": [
+						"{{baseUrl}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8000/api/despesas",
+			"type": "string"
+		}
+	]
+}
