@@ -15,6 +15,15 @@ export class DespesasService {
       return responseFormater(error, false)
     }
   }
+  async list(dataInicial: string, dataFinal: string): Promise<ResponseFormatter> {
+    try {
+
+      const data = await this.repoDespesas.list(dataInicial, dataFinal)
+      return responseFormater(data, this.success)
+    } catch (error) {
+      return responseFormater(error, false)
+    }
+  }
   async add(despesa: AddDespesasModel): Promise<ResponseFormatter> {
     try {
 

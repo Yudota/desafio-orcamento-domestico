@@ -23,6 +23,15 @@ export class DespesasPgRepository implements DespesasCRUD {
       throw new Error(error)
     }
   }
+  async list(dataInicial: string, dataFinal: string): Promise<DespesasModel[]> {
+    try {
+      const result = await PgConnection.execute(`SELECT * FROM despesas WHERE des_data_compra BETWEEN '${dataInicial}' AND '${dataFinal}'`)
+      return result.rows as DespesasModel[];
+    } catch (error) {
+      throw new Error(error)
+    }
+
+  }
   async update(despesa: Partial<UpdateDespesasModel>): Promise<DespesasModel> {
     if (!despesa.id) throw new Error("O campo 'id' é obrigatório.");
 
