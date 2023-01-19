@@ -35,27 +35,34 @@ export default class ListDespesasService {
     // verificar qual formato para conversão de arquivo
     switch (String(formato).toLowerCase()) {
       case 'pdf':
-        const doc = new jsPDF();
-
-        // Definindo o tamanho da fonte
-        doc.setFontSize(12);
-
-        // Cabeçalho da tabela
-        doc.cell(10, 10, 1, 0, 'Valor', 0, '');
-        doc.cell(50, 10, 1, 0, 'Descrição', 1, '');
-        doc.cell(50, 10, 1, 0, 'Data da Compra', 1, '');
-        listData.data.forEach((line,) => {
-          doc.cell(10, 10, 1, 0, line.des_valor, 2, '');
-          doc.cell(50, 10, 1, 0, line.des_descricao, 3, '');
-          doc.cell(50, 10, 1, 0, line.des_data_compra, 4, '');
-        })
-        doc.save()
-        const pdf = doc.output();
         res.setHeader('Content-Type', 'application/pdf');
         res.setHeader("Content-Disposition", `attachment; filename="relatorio${initialDate + finalDate}.pdf"`);
 
+        const doc = new jsPDF();
+
+        let altura = 10;
+        let linha = 0;
+
+        // Definindo o tamanho da fonte
+        doc.setFontSize(12);
+        // Cabeçalho da tabela
+        doc.cell(10, altura, 40, 10, 'Valor', linha, '');
+        doc.cell(50, altura, 70, 10, 'Descricao', linha, '');
+        doc.cell(120, altura, 70, 10, 'Data da Compra', linha, '');
+        listData.data.forEach((line,) => {
+          altura += 20;
+          linha++;
+          doc.cell(10, altura, 40, 10, line.des_valor, linha, '');
+          doc.cell(50, altura, 70, 10, line.des_descricao, linha, '');
+          doc.cell(50, altura, 70, 10, line.des_data_compra.toLocaleString(), linha, '');
+          console.log(line.des_data_compra);
+        })
+        doc.save()
+        const pdf = doc.output();
+
 
         res.send(pdf)
+        return res;
       case 'xlsx':
         res.setHeader("Content-Type", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
         res.setHeader("Content-Disposition", `attachment; filename="relatorio${initialDate + finalDate}.xlsx"`);
