@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import { PgConnection } from "../../infra/db/postgres/helpers/pg-helper";
 import responseFormater from "./response-formater";
 
 export default class AdminController {
@@ -21,9 +20,5 @@ export default class AdminController {
         return res.json(responseFormater('deu errado', false))
 
     }
-    // const result = await PgConnection.execute("select * from tipos_pagamentos")
-    // return res.status(200).json({
-    //   data: result.rows
-    // });
   }
 }
